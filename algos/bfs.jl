@@ -3,16 +3,18 @@ using LightGraphs
 
 function mybfs(graph_vertices,starting_vertex)
 
-    result = gdistances(graph_vertices[1],starting_vertex)
-
-    println("\nBFS Algorithm:")
-    for l in result
-        current = graph_vertices[3]
-        println("Dist to node whatev: $l")
+    result = map(gdistances(graph_vertices[1],starting_vertex)) do x
+        if x == 9223372036854775807
+            return -1
+        else
+            return x
+        end
     end
+
+    return result
 
 end
 
 
-example = createDirGraph(true,false,directed_weight_v, directed_weight_e)
-mybfs(example,1)
+example = createDirGraph(false,false,undirected_weight_v, undirected_weight_e)
+println(mybfs(example,1))
