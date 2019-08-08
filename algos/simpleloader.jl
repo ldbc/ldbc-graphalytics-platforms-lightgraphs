@@ -44,7 +44,13 @@ function createDirGraph(is_directed::Bool,is_weighted::Bool,vertexfile,edgefile)
             source = parse(Int64, s[1])
             dest = parse(Int64, s[2])
             weight_current = parse(Float64, s[3])
-            weight_matrix[(findfirst(x -> x==source, vertices)),(findfirst(x -> x==dest, vertices))] = weight_current
+            if is_directed
+                weight_matrix[(findfirst(x -> x==source, vertices)),(findfirst(x -> x==dest, vertices))] = weight_current
+            else
+                weight_matrix[(findfirst(x -> x==source, vertices)),(findfirst(x -> x==dest, vertices))] = weight_current
+                weight_matrix[(findfirst(x -> x==dest, vertices)),(findfirst(x -> x==source, vertices))] = weight_current
+            end
+
             LightGraphs.add_edge!(graph, (findfirst(x -> x==source, vertices)), (findfirst(x -> x==dest, vertices)))
         end
     else

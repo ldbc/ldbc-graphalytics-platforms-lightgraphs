@@ -4,7 +4,5 @@ function dijkstra(graph_vertices)
     return solution
 end
 
-example = createDirGraph(true,true,directed_weight_v,directed_weight_e)
-
-sol = dijkstra(example)
-println(sol)
+example = createDirGraph(false,true,undirected_weight_v,undirected_weight_e)
+println(dijkstra(example))
