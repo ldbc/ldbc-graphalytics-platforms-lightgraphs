@@ -1,7 +1,6 @@
 using LightGraphs
-using GraphPlot
 
-function mylcc(graph::AbstractGraph)
+function ldbc_lg_lcc(graph::AbstractGraph)
     # Array that stores the outpot of the LCC algorithm for each vertex
     lcc = []
     # Iterates through vertices of the graph pushing its LCC(vertex) in the lcc[] array
@@ -12,7 +11,6 @@ function mylcc(graph::AbstractGraph)
         Nv = length(neighs)
         # Trianle count
         tcount = 0
-        @show vertex neighs Nv
 
         # If a vertex has les than 2 neighbors its pushing 0.0 as its LCC(vertex) value
         if length(neighs)<=1
@@ -32,8 +30,5 @@ function mylcc(graph::AbstractGraph)
         push!(lcc,tcount/(Nv*(Nv-1)))
     end
 
-    return lcc
+    return map(x -> round(x, digits=2),lcc)
 end
-
-example = createDirGraph(false,false,undirected_weight_v,undirected_weight_e)
-println(mylcc(example[1]))

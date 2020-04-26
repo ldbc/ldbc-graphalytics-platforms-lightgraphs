@@ -7,7 +7,6 @@ function  pageRank(A, iter::Int64, d::Float64)
     N = first(size(A))
     degrees = A*ones(N)
     D = map(x -> x == 0 ? 1.0 : 0.0, degrees)
-
     pr = ones(N)/N
     teleport = (1-d) / N
     for i = 1 : iter
@@ -19,7 +18,8 @@ function  pageRank(A, iter::Int64, d::Float64)
     return pr
 end
 
-A = MatrixMarket.mmread("./algos/linearjulia/example-undirected.mtx")
+A = MatrixMarket.mmread("./algos/linearjulia/example-directed.mtx")
 #Adjacency
 A = SparseMatrixCSC(A.m, A.n, A.colptr, A.rowval, map(x -> 1, A.nzval))
-println(pageRank(A,2,0.85))
+sol = pageRank(A,2,0.85)
+println(sol)

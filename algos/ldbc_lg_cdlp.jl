@@ -1,8 +1,7 @@
 using LightGraphs
-using GraphPlot
 using StatsBase
 
-function mycdlp(graph::AbstractGraph, iter::Int64)
+function ldbc_lg_cdlp(graph::AbstractGraph, iter::Int64)
 
     # Dictionary init that cointains the label for each node which is going to be updated
     node_to_label = Dict()
@@ -52,7 +51,3 @@ function mycdlp(graph::AbstractGraph, iter::Int64)
 
     return node_to_label
 end
-
-example = createDirGraph(false,false,undirected_weight_v, undirected_weight_e)
-println("\n")
-println(mycdlp(example[1],2))
