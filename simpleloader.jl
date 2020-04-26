@@ -1,5 +1,4 @@
 using LightGraphs
-using GraphPlot
 
 
 # Create directed graph from .v and .e files
@@ -17,7 +16,7 @@ function createDirGraph(is_directed::Bool,is_weighted::Bool,vertexfile,edgefile)
     # Dictionary for labels to actual node numbers
     label_to_node = Dict()
 
-    # Open files
+    # Open files   
     vertexfile = open(vertexfile)
     edgefile = open(edgefile)
 
