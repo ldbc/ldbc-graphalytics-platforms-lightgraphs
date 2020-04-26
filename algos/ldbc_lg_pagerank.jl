@@ -1,7 +1,6 @@
 using LightGraphs
-using GraphPlot
 
-function mypagerank(graph::AbstractGraph, damping_factor::Float64, iter::Int64)
+function ldbc_lg_pagerank(graph::AbstractGraph, damping_factor::Float64, iter::Int64)
 
     # Number of vertices in the graph
     V = nv(graph)
@@ -54,11 +53,6 @@ function mypagerank(graph::AbstractGraph, damping_factor::Float64, iter::Int64)
 
     end
 
-    @show pr_current
+    return map(x -> round(x, digits=2), pr_current)
 
 end
-
-example = createDirGraph(true,false,directed_weight_v, directed_weight_e)
-
-println("\n")
-mypagerank(example[1],0.85,2)
