@@ -1,6 +1,6 @@
 using LightGraphs
-include("../filepaths.jl")
-include("../simpleloader.jl")
+include("../utils/filepaths.jl")
+include("../utils/simpleloader.jl")
 include("./ldbc_lg_bfs.jl")
 include("./ldbc_lg_pagerank.jl")
 include("./ldbc_lg_wcc.jl")
