@@ -1,3 +1,5 @@
+package science.atlarge.graphalytics.julia.algorithms;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import science.atlarge.graphalytics.configuration.ConfigurationUtil;
