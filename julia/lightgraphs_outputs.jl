@@ -17,20 +17,20 @@ example_undirected_unweighted = createDirGraph(false,false,undirected_unweighted
 # BFS
 println("Breadth-First-Search algorithm (shows -1 if the vertex is unreachable)")
 
-bfs_directed_solution = ldbc_lg_bfs(example_directed_unweighted, 1)
+@time bfs_directed_solution = ldbc_lg_bfs(example_directed_unweighted, 1)
 println("| Directed unweighted output: ",bfs_directed_solution)
 
-bfs_undirected_solution = ldbc_lg_bfs(example_undirected_unweighted, 1)
+@time bfs_undirected_solution = ldbc_lg_bfs(example_undirected_unweighted, 1)
 println("| Undirected unweighted output: ",bfs_undirected_solution)
 
 println("")
 # PR
 println("PageRank algorithm")
 
-pr_directed_solution = ldbc_lg_pagerank(example_directed_unweighted[1],0.85,2)
+@time pr_directed_solution = ldbc_lg_pagerank(example_directed_unweighted[1],0.85,2)
 println("| Directed unweighted output: ", pr_directed_solution)
 
-pr_undirected_solution = ldbc_lg_pagerank(example_undirected_unweighted[1],0.85,2)
+@time pr_undirected_solution = ldbc_lg_pagerank(example_undirected_unweighted[1],0.85,2)
 println("| Unirected unweighted output: ", pr_undirected_solution)
 
 println("")
@@ -38,17 +38,17 @@ println("")
 println("Weekly Connected Components algorithm")
 
 print("| Directed unweighted output: ")
-ldbc_lg_wcc(example_directed_unweighted)
+@time ldbc_lg_wcc(example_directed_unweighted)
 
 print("| Unirected unweighted output: ")
-ldbc_lg_wcc(example_undirected_unweighted)
+@time ldbc_lg_wcc(example_undirected_unweighted)
 
 println("")
 # CDLP
 
 println("Community Detection using Label Propagation algorithm")
 
-cdlp_directed_solution = ldbc_lg_cdlp(example_directed_unweighted[1], 2)
+@time cdlp_directed_solution = ldbc_lg_cdlp(example_directed_unweighted[1], 2)
 println("| Directed unweighted output: ", cdlp_directed_solution)
 
 # cdlp_undirected_solution = ldbc_lg_cdlp(example_undirected_unweighted[1], 2)
@@ -60,10 +60,10 @@ println("")
 
 println("Local Clustering Coefficient algorithm")
 
-lcc_directed_solution = ldbc_lg_lcc(example_directed_unweighted[1])
+@time lcc_directed_solution = ldbc_lg_lcc(example_directed_unweighted[1])
 println("| Directed unweighted output: ", lcc_directed_solution)
 
-lcc_undirected_solution = ldbc_lg_lcc(example_undirected_unweighted[1])
+@time lcc_undirected_solution = ldbc_lg_lcc(example_undirected_unweighted[1])
 println("| Undirected unweighted output: ", lcc_undirected_solution)
 
 println("")
@@ -71,11 +71,11 @@ println("")
 
 println("Single-Source Shortest Path algorithm")
 
-sssp_directed_solution = dijkstra_shortest_paths(example_directed_weighted[1],1,example_directed_weighted[4]).dists
+@time sssp_directed_solution = dijkstra_shortest_paths(example_directed_weighted[1],1,example_directed_weighted[4]).dists
 sssp_directed_solution = map(x -> round(x, digits=2), sssp_directed_solution)
 println("| Directed weighted output: ", sssp_directed_solution)
 
-sssp_undirected_solution = dijkstra_shortest_paths(example_undirected_weighted[1],1,example_undirected_weighted[4]).dists
+@time sssp_undirected_solution = dijkstra_shortest_paths(example_undirected_weighted[1],1,example_undirected_weighted[4]).dists
 sssp_undirected_solution = map(x -> round(x, digits=2), sssp_undirected_solution)
 println("| Undirected weighted output: ", sssp_undirected_solution)
 
