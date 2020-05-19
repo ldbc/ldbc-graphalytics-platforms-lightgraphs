@@ -1,4 +1,4 @@
-package science.atlarge.graphalytics.julia.algorithms;
+package science.atlarge.graphalytics.julia;
 
 import java.time.Instant;
 

@@ -1,19 +1,39 @@
-package science.atlarge.graphalytics.julia.algorithms;
+/*
+ * Copyright 2015 Delft University of Technology
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package science.atlarge.graphalytics.julia;
 
+import org.apache.commons.configuration.Configuration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import science.atlarge.graphalytics.configuration.ConfigurationUtil;
 import science.atlarge.graphalytics.configuration.GraphalyticsExecutionException;
-import org.apache.commons.configuration.Configuration;
 
 import java.nio.file.Paths;
 
-public class JuliaConfiguration {
+/**
+ * Collection of configurable platform options.
+ *
+ * @author Adam Atyi
+ */
+public final class JuliaConfiguration {
 
     protected static final Logger LOG = LogManager.getLogger();
 
     private static final String BENCHMARK_PROPERTIES_FILE = "benchmark.properties";
-    private static final String NUM_THREADS_KEY = "platform.graphblas.num-threads";
+    private static final String NUM_THREADS_KEY = "platform.julia.num-threads";
 
     private String loaderPath;
     private String unloaderPath;
@@ -21,7 +41,10 @@ public class JuliaConfiguration {
     private String terminatorPath;
     private int numThreads = 1;
 
-    public JuliaConfiguration() {
+    /**
+     * Creates a new JuliaConfiguration object to capture all platform parameters that are not specific to any algorithm.
+     */
+    public JuliaConfiguration(){
     }
 
     public String getLoaderPath() {
@@ -40,12 +63,18 @@ public class JuliaConfiguration {
         this.unloaderPath = unloaderPath;
     }
 
-    public String getExecutablePath() {
-        return executablePath;
-    }
-
+    /**
+     * @param executablePath the directory containing executables
+     */
     public void setExecutablePath(String executablePath) {
         this.executablePath = executablePath;
+    }
+
+    /**
+     * @return the directory containing executables
+     */
+    public String getExecutablePath() {
+        return executablePath;
     }
 
     public String getTerminatorPath() {
@@ -56,15 +85,23 @@ public class JuliaConfiguration {
         this.terminatorPath = terminatorPath;
     }
 
-    public int getNumThreads() {
-        return numThreads;
-    }
-
+    /**
+     * @param numThreads the number of threads to use on each machine
+     */
     public void setNumThreads(int numThreads) {
         this.numThreads = numThreads;
     }
 
+    /**
+     * @return the number of threads to use on each machine
+     */
+    public int getNumThreads() {
+        return numThreads;
+    }
+
+
     public static JuliaConfiguration parsePropertiesFile() {
+
         JuliaConfiguration platformConfig = new JuliaConfiguration();
 
         Configuration configuration = null;
