@@ -1,4 +1,4 @@
-package science.atlarge.graphalytics.julia.algorithms;
+package science.atlarge.graphalytics.julia;
 
 import org.apache.commons.io.output.TeeOutputStream;
 import org.apache.logging.log4j.LogManager;

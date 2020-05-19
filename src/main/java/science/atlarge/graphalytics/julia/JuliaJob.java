@@ -1,4 +1,4 @@
-package science.atlarge.graphalytics.julia.algorithms;
+package science.atlarge.graphalytics.julia;
 
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
