@@ -9,6 +9,7 @@ function createDirGraph(is_directed::Bool,is_weighted::Bool,vertexfile,edgefile)
         graph = Graph()
     end
 
+    println("Loading the graph...")
 
     # Array of vertex names
     vertices = []
@@ -70,5 +71,8 @@ function createDirGraph(is_directed::Bool,is_weighted::Bool,vertexfile,edgefile)
     # Close files
     close(vertexfile)
     close(edgefile)
+
+    println("The graph has been loaded...")
+
     return graph_vertices
 end
