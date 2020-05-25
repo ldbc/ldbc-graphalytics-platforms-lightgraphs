@@ -1,3 +1,5 @@
+using GraphIO
+
 include("../ldbc_lg_bfs.jl")
 include("../utils/simpleloader.jl")
 include("../utils/benchmarkparameters.jl")
