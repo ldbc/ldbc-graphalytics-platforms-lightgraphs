@@ -1,8 +1,0 @@
-directed_weighted_v = "../../../example-directed/example-directed.v"
-directed_weighted_e = "../../../example-directed/example-directed.e"
-directed_unweighted_v ="../../../example-directed/example-unweighted.v"
-directed_unweighted_e = "../../../example-directed/example-unweighted.e"
-undirected_weighted_v = "../../../example-undirected/example-undirected.v"
-undirected_weighted_e = "../../../example-undirected/example-undirected.e"
-undirected_unweighted_v = "../../../example-undirected/example-unweighted.v"
-undirected_unweighted_e = "../../../example-undirected/example-unweighted.e"
