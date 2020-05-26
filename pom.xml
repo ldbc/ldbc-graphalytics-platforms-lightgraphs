@@ -20,6 +20,11 @@
 
     <name>Graphalytics Platform Julia</name>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:ftsrg/ldbc-graphalytics-platforms-lightgraphs.git</developerConnection>
+        <url>https://github.com/ftsrg/ldbc-graphalytics-platforms-lightgraphs</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
