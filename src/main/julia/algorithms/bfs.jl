@@ -14,10 +14,10 @@ function bfs()
     (G, forwardmapping) = loadgraph(parameters["dataset"], "graph", GraphIO.EdgeList.EdgeListFormat())
 
     println("Forward mapping...")
-    forwardmapping = Dict(parse(Int, k) => v  for (k,v) in pairs(forwardmapping))
+    forwardmapping = Dict(parse(Int64, k) => v  for (k,v) in pairs(forwardmapping))
     println("Backward mapping...")
     backwardmapping = Dict(forwardmapping[k] => k for k in keys(forwardmapping))
-    
+
     source_vertex_mapped = forwardmapping[parameters["source_vertex"]]
 
     println("Algorithm started...")
