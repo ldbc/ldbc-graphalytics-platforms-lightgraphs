@@ -30,5 +30,5 @@ function ldbc_lg_lcc(graph::AbstractGraph)
         push!(lcc,tcount/(Nv*(Nv-1)))
     end
 
-    return map(x -> round(x, digits=2),lcc)
+    return lcc
 end
