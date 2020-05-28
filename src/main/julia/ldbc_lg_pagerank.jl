@@ -53,6 +53,5 @@ function ldbc_lg_pagerank(graph::AbstractGraph, damping_factor::Float64, iter::I
 
     end
 
-    return map(x -> round(x, digits=2), pr_current)
-
+    return pr_current
 end
