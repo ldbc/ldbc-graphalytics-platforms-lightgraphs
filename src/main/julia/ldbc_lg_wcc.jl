@@ -2,7 +2,7 @@ using LightGraphs
 
 function ldbc_lg_wcc(graph_vertices)
 
-    result = weakly_connected_components(graph_vertices[1])
+    result = weakly_connected_components(graph_vertices)
 
     for i = 1:length(result)
         min = string(Base.minimum(result[i]))

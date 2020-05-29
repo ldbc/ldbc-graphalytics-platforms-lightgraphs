@@ -13,22 +13,22 @@ function lcc()
     println("Loading graph...")
     (G, forwardmapping) = loadgraph(parameters["dataset"], "graph", GraphIO.EdgeList.EdgeListFormat())
 
-    println("Forward mapping...")
-    forwardmapping = Dict(parse(Int64, k) => v  for (k,v) in pairs(forwardmapping))
+    # println("Forward mapping...")
+    # forwardmapping = Dict(parse(Int64, k) => v  for (k,v) in pairs(forwardmapping))
 
-    println("Backward mapping...")
-    backwardmapping = Dict(forwardmapping[k] => k for k in keys(forwardmapping))
+    # println("Backward mapping...")
+    # backwardmapping = Dict(forwardmapping[k] => k for k in keys(forwardmapping))
 
     println("Algorithm started...")
     result = @time ldbc_lg_lcc(G)
 
-    result_dict = Dict()
-    for i in 1 : length(result)
-        result_dict[backwardmapping[i]] = result[i]
-    end
-    result_dict = sort(result_dict)
+    # result_dict = Dict()
+    # for i in 1 : length(result)
+    #     result_dict[backwardmapping[i]] = result[i]
+    # end
+    # result_dict = sort(result_dict)
     
-    println(result_dict)
+    # println(result_dict)
 end
 
 lcc()
